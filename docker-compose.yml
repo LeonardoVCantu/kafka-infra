@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-  # --- APACHE KAFKA (Modo KRaft - Sem Zookeeper) ---
   kafka:
     image: confluentinc/cp-kafka:${KAFKA_VERSION}
     container_name: kafka-broker
@@ -28,7 +27,7 @@ services:
       timeout: 5s
       retries: 5
 
-  # --- INTERFACE VISUAL (Kafka UI) ---
+
   kafka-ui:
     image: provectuslabs/kafka-ui:${KAFKA_UI_VERSION}
     container_name: kafka-visual-ui
@@ -41,7 +40,7 @@ services:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
 
-  # --- BANCO DE DADOS (PostgreSQL) ---
+
   postgres:
     image: postgres:${POSTGRES_VERSION}
     container_name: ecom-postgres
